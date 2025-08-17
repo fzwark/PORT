@@ -4,11 +4,11 @@
 
 ![Online LLM Routing](https://img.shields.io/badge/Online_LLM-Routing-yellow.svg) ![Training-free Router](https://img.shields.io/badge/Training_free-Router-blue.svg)
 
-![](assets/routing_p.png)
 
 ## Introduction
 Increasing demand for Large Language Models (LLMs) services imposes substantial deployment and computation costs on providers. LLM routing offers a cost-efficient solution by directing queries to the optimal LLM based on model and query features. However, existing works primarily focus on offline scenarios and struggle to adapt to online settings with high query volume and constrained token budgets. In this work, we introduce the first training-free algorithm for online routing scenarios. Our algorithm leverages approximate nearest neighbor search to efficiently estimate query features and performs a one-time optimization over a small set of initial queries to learn a routing strategy that guides future routing. We provide theoretical guarantees demonstrating that our algorithm achieves a competitive ratio of $1 - o(1)$ under natural assumptions, which is further validated by extensive experiments across 3 benchmark datasets and 8 baselines, showing an average improvement of **3.55×** in overall performance, **1.85×** in cost efficiency, and nearly **4.25×** in throughput. More information can be found [here](docs/slides_introduction.pdf).
 
+![](assets/routing_p.png)
 
 ## Updates
 - [2025.8.15] 🚀 Our code is released!

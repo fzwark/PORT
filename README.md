@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 ## Running
 
-To reproduce the main results for on [RouterBench](https://huggingface.co/datasets/withmartian/routerbench)m, a large-scale benchmark of 30k+ prompts and 11 LLMs designed to evaluate LLM routing, run:
+To reproduce the main results for on [RouterBench](https://huggingface.co/datasets/withmartian/routerbench), a large-scale benchmark of 30k+ prompts and 11 LLMs designed to evaluate LLM routing, run:
 
 ```bash
 python test.py --ops 1 2 3 4 5 6 7 8 --N=10000 --M=11 --E=26497 --alpha=0.0001 --eps=0.025 --budget=1 --split=weighted --embed=bge

@@ -26,11 +26,27 @@ pip install -r requirements.txt
 
 ## Running
 
-To reproduce the main results for on RouterBench, run:
+To reproduce the main results for on [RouterBench](https://huggingface.co/datasets/withmartian/routerbench)m, a large-scale benchmark of 30k+ prompts and 11 LLMs designed to evaluate LLM routing, run:
 
 ```bash
-python test.py --ops 1 2 3 4 5 6 7 8 --N=10000 --alpha=0.0001 --eps=0.025 --budget=1 --split=weighted --embed=bge
+python test.py --ops 1 2 3 4 5 6 7 8 --N=10000 --M=11 --E=26497 --alpha=0.0001 --eps=0.025 --budget=1 --split=weighted --embed=bge
 ```
+
+- You can specify the routing methods from our paper using the `ops` option.
+- Use `N` to set the size of the test query volume. You can also adjust `E` to control the number of historical data points used, and `M` to control the number of deployed LLMs.
+- The parameters of our online routing algorithm can be adjusted via `alpha` (a control parameter) and `eps` (the fraction of initial queries used for one-time optimization).
+- The `split` option determines how the budget is allocated across deployed LLMs. We provide six splitting strategies: `"weighted"`, `"extreme"`, `"random"`, `"uniform"`, `"cost"`, and `"perf"`.
+- The `embed` option specifies the embedding model to be used.
+
+### Integrating a New Benchmark
+
+To add a new benchmark into this framework, the dataset must follow a unified schema. Each sample represents a single query, and for that query the dataset should include following fields from every supported LLM `m`:
+
+- `index`: A unique identifier for the query.
+- `prompt`: The input text (string).
+- `m`: The model’s performance score (value in \[0, 1]).
+- `m|total_cost`: The model’s total inference cost (float) for the query.
+
 
 ### Model Training for Model-Based Router Baselines
 

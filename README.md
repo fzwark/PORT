@@ -75,3 +75,19 @@ We vary query volume from 4000 to 12000 and observe that our algorithm consisten
 Our method consistently outperforms training-free baselines under diverse LLM deployment configurations (ranging from 2 LLMs to 16 LLMs), highlighting its robustness and adaptability.
 
 ![](assets/deployments.png)
+
+
+## Citation
+
+If you use this codebase, please consider citing our paper:
+
+```bibtex
+@inproceedings{
+wu2025efficient,
+title={Efficient Training-Free Online Routing for High-Volume Multi-{LLM} Serving},
+author={Fangzhou Wu and Sandeep Silwal},
+booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems},
+year={2025},
+url={https://openreview.net/forum?id=d4mZyZB5I9}
+}
+```
